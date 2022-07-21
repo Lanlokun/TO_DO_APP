@@ -21,8 +21,14 @@ function newTodo() {
   updateCount()
 }
 
-function deleteTodo(event) {
-  const todo = event.target.parentNode
+function updateCount() {
+  const unchecked = document.querySelectorAll('input:not(:checked)')
+  itemCountSpan.innerHTML = list.children.length
+  uncheckedCountSpan.innerHTML = unchecked.length
+}
+
+function deleteTodo() {
+  const todo = this.parentNode
   list.removeChild(todo)
   updateCount()
 }
